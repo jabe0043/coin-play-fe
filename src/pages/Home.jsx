@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { useUser } from '../context/userContext';
+import { useAuth } from '../context/authContext';
 
 
 export default function Home(){
-  const [authenticatedUserToken] = useUser();
+  const [authenticatedUserToken] = useAuth();
   console.log('user successfully logged in');
 
-  //-- Create || Retrieve User document in MongoDB
+  //-- Create || Retrieve User document in MongoDB (first mongo client request);
   useEffect(() => {
     if (authenticatedUserToken) {
       fetch('http://localhost:3001/user', {

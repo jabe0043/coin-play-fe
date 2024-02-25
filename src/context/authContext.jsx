@@ -1,8 +1,8 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-const UserContext = createContext();
+const AuthContext = createContext();
 
-function UserProvider(props) {
+function AuthProvider(props) {
   const [authenticatedUserToken, setAuthenticatedUserToken] = useState(() => {
     return JSON.parse(sessionStorage.getItem("UserToken"));
   });
@@ -12,14 +12,13 @@ function UserProvider(props) {
     sessionStorage.setItem("UserToken", JSON.stringify(authenticatedUserToken));
   }, [authenticatedUserToken]);
 
-
-  return <UserContext.Provider value={[authenticatedUserToken, setAuthenticatedUserToken]} {...props} />;
+  return <AuthContext.Provider value={[authenticatedUserToken, setAuthenticatedUserToken]} {...props} />;
 }
 
-function useUser() {
-  const context = useContext(UserContext);
+function useAuth() {
+  const context = useContext(AuthContext);
   if (!context) throw new Error("Not inside the Provider - no user is signed in");
   return context;
 }
 
-export { useUser, UserProvider };
+export { useAuth, AuthProvider };

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useUser } from "../context/userContext";
+import { useAuth } from "../context/authContext";
 
 
 export default function Login() {
@@ -14,7 +14,7 @@ export default function Login() {
 
   const navigate = useNavigate();
   const [params, _setParams] = useSearchParams();
-  const [authenticatedUserToken, setAuthenticatedUserToken] = useUser();
+  const [authenticatedUserToken, setAuthenticatedUserToken] = useAuth();
 
   useEffect(() => {
     const token = params.get("token");
