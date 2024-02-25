@@ -5,7 +5,7 @@ import { useUser } from "../context/userContext";
 
 export default function Login() {
   //////////////////URL/////////////////////
-  //Local Server URL
+  //Local Node.js Server URL
   const baseURL = `http://localhost:3001`;
 
   //Client localhost URL
@@ -18,8 +18,8 @@ export default function Login() {
 
   useEffect(() => {
     const token = params.get("token");
+    console.log('PARAMS:', params);
     if (token) {
-      // console.log("set token to the sessionStorage", token);
       setAuthenticatedUserToken(token);
       navigate("/home");
     } else {
@@ -32,7 +32,6 @@ export default function Login() {
   function initiateLogin() {
     console.log('initiating log in')
     let url = baseURL + `/auth/google?redirect_url=${clientURL}`;
-    // console.log(url);
     location.href = url;
   }
 
