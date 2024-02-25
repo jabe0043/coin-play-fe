@@ -9,9 +9,7 @@ function App() {
 
   return (
     <Routes location={location} key={location.pathname}>
-      { !authenticatedUserToken &&
-        <Route path="/login" element={<Login />}/>
-      }
+      <Route path="/" element={<Login />}/>
       { authenticatedUserToken && 
         <Route path="/home" element={<Home />}/> 
       } 
