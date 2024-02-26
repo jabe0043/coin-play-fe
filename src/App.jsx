@@ -1,9 +1,10 @@
 import { Routes, Route, useLocation } from "react-router-dom";
+import { useAuth } from "./context/authContext";
+import { UserProvider } from "./context/userContext";
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Explore from './pages/Explore';
-import { useAuth } from "./context/authContext";
-import { UserProvider } from "./context/userContext";
+import CoinDetails from "./pages/CoinDetails";
 /* GRAYS
 #f0f0f0
 #e0e0e0
@@ -28,6 +29,7 @@ function App() {
           <>
             <Route path="/home" element={<Home />}/> 
             <Route path='/explore' element= {<Explore />} />
+            <Route path='/coin/:coinSymbol' element= {<CoinDetails />} />
           </>
         } 
       </Routes>
