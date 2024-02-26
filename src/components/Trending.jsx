@@ -4,18 +4,18 @@ import { useEffect, useState } from "react";
 
 // Left Outside of homepage components folder because trending coins should prob go in the explore page;
 export default function Trending({trendingCoins}){
-  console.log('TRENDING PAGE, trendingCoins:', trendingCoins);
   const MobulaAPIKey = 'f23be6cd-5974-49dd-891a-1271034427f9';
+  const trendingCoinsArray = Object.values(trendingCoins); //convert trending coins from { {}, {} } to [ {}, {} ];
+  console.log('trending coins:', trendingCoinsArray);
 
   useEffect(() => {
     buildTrendingCoinsList();
+    // getMarketData(); //TODO: build this fx and use the trendingCoinsArray to fetch the 1d market trends;
   }, []);
 
   //-- Loop through the trendingCoinds object { btc:{}, eth:{}, sol:{} } and build the list item card for it;
   const buildTrendingCoinsList = () => {
-    const trendingCoinsArray = Object.values(trendingCoins); //convert trending coins from { {}, {} } TO [ {}, {} ];
-    console.log(trendingCoinsArray);
-    return trendingCoinsArray.map((coin) => trendingCoinLi(coin));
+    return trendingCoinsArray.map((coin) => trendingCoinLi(coin)); //build list items;
   }
 
   //-- Build the table list item for each coin
@@ -34,12 +34,16 @@ export default function Trending({trendingCoins}){
           <p style={{width:150, color:coin.price_change_24h > 0 ? 'green':'red'}}>{coin.price_change_24h > 0 ? `+${coin.price_change_24h.toPrecision(2)}%` : `${coin.price_change_24h.toPrecision(2)}%`}</p>
           <p style={{width:150}}>${coin.price.toFixed(2).toLocaleString('en-Us')}</p>
           <div style={{width:300}}>
-            <p>24h chart</p>
+            {buildMarketChart(coin.name)}
           </div>
           <button style={{width:50, height:25, borderRadius:50, border:'none', alignSelf:'center'}}>Trade</button>
         </div>
       </div>
     );
+  }
+
+  const buildMarketChart = (coin) => {
+    console.log('build market chart function:', coin)
   }
 
 

@@ -2,14 +2,14 @@
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 
 export default function Portfolio({userDoc}){
-  const {balance, available,invested} = userDoc.portfolio;
+  const {balance, available, invested} = userDoc.portfolio;
 
 
   return(
     userDoc &&
     <div style={{width:'40%', height:"25rem",backgroundColor:'#e0e0e0'}}>
 
-      <h2>Portfolio</h2>
+      <h2>Welcome, {userDoc.name.split(" ")[0]}</h2>
 
       {/* TOTAL BALANCE*/}
       <div style={{ backgroundColor: '#cccccc', display: 'flex', justifyContent: 'space-between', borderBottom: '.1rem solid #b0b0b0' }}>
@@ -23,7 +23,7 @@ export default function Portfolio({userDoc}){
               <MdOutlineArrowDropDown style={{color:'red'}}/>
             </div>
           </div>
-          <p>{balance}</p>
+          <p>{balance.toLocaleString('en-Us')}</p>
         </div>
       </div>
 
@@ -31,7 +31,7 @@ export default function Portfolio({userDoc}){
       <div style={{ backgroundColor:'#cccccc', display:'flex', justifyContent:'space-between', borderBottom: '.1rem solid #b0b0b0'}}>
         <p>Available</p>
         <div style={{ display:'flex', justifyContent:'center', alignItems:'center', gap:10}}>
-          <p>{available}</p>
+          <p>{available.toLocaleString('en-Us')}</p>
         </div>
       </div>
 

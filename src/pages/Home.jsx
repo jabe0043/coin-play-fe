@@ -67,7 +67,6 @@ export default function Home(){
     <>
       {userDoc && (
         <div >
-          <p>Welcome {userDoc.name.split(" ")[0]}</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', backgroundColor: '#f5f5f5' }}>
             <Portfolio userDoc={userDoc}></Portfolio>
             <Assets userDoc={userDoc}></Assets>
