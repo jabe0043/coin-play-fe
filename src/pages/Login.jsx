@@ -13,7 +13,7 @@ export default function Login() {
   ////////////////////////////////////////////
 
   const navigate = useNavigate();
-  const [params, _setParams] = useSearchParams();
+  const [params, setParams] = useSearchParams();
   const [authenticatedUserToken, setAuthenticatedUserToken] = useAuth();
 
   useEffect(() => {
@@ -29,11 +29,13 @@ export default function Login() {
     }
   }, []);
 
+
+  //-- Initiate Google OAuth flow
   function initiateLogin() {
-    console.log('initiating log in')
     let url = baseURL + `/auth/google?redirect_url=${clientURL}`;
     location.href = url;
   }
+
 
   return (
     <div>
