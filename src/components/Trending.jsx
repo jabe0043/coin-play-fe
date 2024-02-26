@@ -10,7 +10,6 @@ export default function Trending({trendingCoins}){
 
   useEffect(() => {
     buildTrendingCoinsList();
-    // getMarketData(); //TODO: build this fx and use the trendingCoinsArray to fetch the 1d market trends;
   }, []);
 
   //-- Loop through the trendingCoinds object { btc:{}, eth:{}, sol:{} } and build the list item card for it;
@@ -31,19 +30,13 @@ export default function Trending({trendingCoins}){
             </div>
           </div>
           <p style={{width:150,}}> ${coin.market_cap.toLocaleString()}</p>
+          <p style={{width:150, color:coin.volume_change_24h > 0 ? 'green':'red'}}>{coin.volume_change_24h > 0 ? `+${coin.volume_change_24h.toPrecision(2)}%` : `${coin.volume_change_24h.toPrecision(2)}%`}</p>
           <p style={{width:150, color:coin.price_change_24h > 0 ? 'green':'red'}}>{coin.price_change_24h > 0 ? `+${coin.price_change_24h.toPrecision(2)}%` : `${coin.price_change_24h.toPrecision(2)}%`}</p>
           <p style={{width:150}}>${coin.price.toFixed(2).toLocaleString('en-Us')}</p>
-          <div style={{width:300}}>
-            {buildMarketChart(coin.name)}
-          </div>
           <button style={{width:50, height:25, borderRadius:50, border:'none', alignSelf:'center'}}>Trade</button>
         </div>
       </div>
     );
-  }
-
-  const buildMarketChart = (coin) => {
-    console.log('build market chart function:', coin)
   }
 
 
@@ -100,13 +93,13 @@ export default function Trending({trendingCoins}){
           <p>MARKET CAP</p>
         </div>
         <div style={{width:150}}>
+          <p>24H VOLUME</p>
+        </div>
+        <div style={{width:150}}>
           <p>24H CHANGE</p>
         </div>
         <div style={{width:150}}>
           <p>PRICE</p>
-        </div>
-        <div style={{width:300}}>
-          <p>7D CHART</p>
         </div>
         <div style={{width:50}} /> {/* to adjust for the trade button */}
       </div>
@@ -116,7 +109,7 @@ export default function Trending({trendingCoins}){
 
   return(
     <div >
-      <h2>Trending coins</h2>
+      <h2>Top Coins</h2>
       {trendingCoins && 
       <div>
         {tableLegend()}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../context/authContext';
+import Navbar from '../components/navbar/Navbar';
 import Portfolio from '../components/homepage/Portfolio';
 import Assets from '../components/homepage/Assets';
 import Trending from '../components/Trending';
@@ -11,7 +12,7 @@ export default function Home(){
   const [trendingCoins, setTrendingCoins] = useState(null);
   const trending = [
     'BTC', 'ETH', 'USDT', 'BNB', 'SOL', 'XRP', 'USDC', 'ADA', 'AVAX', 'DOGE',
-    // 'TRX', 'LINK', 'DOT', 'MATIC', 'WBTC', 'TONCOIN', 'UNI', 'ICP', 'SHIB', 'DAI'
+    'TRX', 'LINK', 'DOT', 'MATIC', 'WBTC', 'TONCOIN', 'UNI', 'ICP', 'SHIB', 'DAI'
   ];
   const MobulaAPIKey = 'f23be6cd-5974-49dd-891a-1271034427f9';
   const options = {method: 'GET'};
@@ -65,6 +66,7 @@ export default function Home(){
 
   return (
     <>
+      <Navbar/>
       {userDoc && (
         <div >
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', backgroundColor: '#f5f5f5' }}>
