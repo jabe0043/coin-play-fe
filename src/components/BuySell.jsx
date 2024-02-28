@@ -1,13 +1,17 @@
 import { useUser } from '../context/userContext';
 import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
 export default function BuySell({ coin }) {
-  const [getUserDoc, userDoc, setUserDoc] = useUser();
+  const [getUserDoc, userDoc, setUserDoc, processUserTransaction] = useUser();
   const [qtyInput, setQtyInput] = useState('');
   const [placeholder, setPlaceholder] = useState('');
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate();
 
+  console.log('USER DOC: ', userDoc);
+  console.log('coin: ', coin);
 
   // Set the input placeholder text based on qtyInput
   useEffect(() => {
@@ -32,13 +36,28 @@ export default function BuySell({ coin }) {
   };
 
   //-- Get total purchaseable QTY based on available portfolio balance;
-  const getTotalPurchaseableQty = () =>{
+  const getTotalPurchaseableQty = () => {
     let totalAmt = userDoc.portfolio.available / coin.price;
     totalAmt = Math.floor(totalAmt * 100) / 100;
     console.log(totalAmt);
     return totalAmt.toLocaleString('en-Us')
   }
 
+  //-- Initiate user transaction
+  const initiateTransaction = async (transactionType) => {
+    console.log('initiating transaction', transactionType);
+    const transactionInfo = {
+      coinId: coin.symbol,
+      coinName: coin.name,
+      coinSymbol: coin.symbol,
+      qty: qtyInput,
+      price: total,
+      date: new Date(),
+      transactionId: crypto.randomUUID()
+    }
+    await processUserTransaction(transactionType,transactionInfo);
+    navigate("/home");
+  }
 
   return (
     <>
@@ -73,7 +92,10 @@ export default function BuySell({ coin }) {
               <p style={{textAlign:'center'}}>$ {total !== null ? total.toFixed(2).toLocaleString('en-Us').toString() : ''}</p>
             </div>
 
-            <button style={{ color: 'white', backgroundColor: '#242424', height: '2.5rem', width: '100%', borderRadius: '5px', border: 0 }}>
+            <button 
+              style={{ color: 'white', backgroundColor: '#242424', height: '2.5rem', width: '100%', borderRadius: '5px', border: 0 }}
+              onClick = {() => initiateTransaction('buy')}
+            >
               {`Buy ${coin.symbol}`}
             </button>
           </div>
