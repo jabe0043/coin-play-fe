@@ -12,7 +12,7 @@ function UserProvider(props) {
     if (authenticatedUserToken) {
       getUserDoc();
     }
-  }, [authenticatedUserToken]);
+  }, []); //authenticatedUserToken inside of dep. array was causing double user creating request and error through mongo
 
 
   // Create || Retrieve User document in MongoDB (first mongo client request);

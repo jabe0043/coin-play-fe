@@ -1,5 +1,4 @@
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
-import Loader from '../Loader';
 
 export default function Portfolio({userDoc}){
   const { balance, available, invested } = userDoc.portfolio;
