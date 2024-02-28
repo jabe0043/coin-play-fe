@@ -9,7 +9,7 @@ import BuySell from '../components/BuySell';
 export default function CoinDetails(){
   const location = useLocation();
   const coinInfo = location.state?.coinInfo;
-  console.log('COIN DETAILS PAGE:', coinInfo);
+  // console.log('COIN DETAILS PAGE:', coinInfo);
   
   //TODO: USING DUMMY DATA FOR NOW -- marketData.jsx;
   // const MobulaAPIKey = 'f23be6cd-5974-49dd-891a-1271034427f9';
@@ -39,7 +39,7 @@ export default function CoinDetails(){
     useEffect(()=>{
       setChartData(marketData.data) //dummy data
       // fetchCoinMetadata();
-      console.log('metadata: ', coinMetaData.data)
+      // console.log('metadata: ', coinMetaData.data)
     }, [chartData])
 
     //----------- END DUMMY DATA -----------
@@ -151,7 +151,7 @@ export default function CoinDetails(){
         </div>
       </div>
 
-      <BuySell ></BuySell>
+      <BuySell coin={coinInfo}></BuySell>
     </div>
   )
 }
