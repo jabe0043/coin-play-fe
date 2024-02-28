@@ -40,3 +40,23 @@
     }
     return period;
   };
+
+
+
+  // function getDates(){
+  // //turn in to switch statement that returns the date formatted based on the requested timerange (ex: 24h, 1d, 1w etc.);
+  //   console.log(chartData);
+  //   if(chartData){
+  //     chartData.price_history.forEach((datapoint) => {
+  //       const date = new Date(datapoint[0])
+  //       const year = date.getFullYear();
+  //       const month = date.getMonth() + 1; // Months are zero-based, so we add 1
+  //       const day = date.getDate();
+  //       const hours = date.getHours();
+  //       const minutes = date.getMinutes();
+  //       const seconds = date.getSeconds();
+  //       const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')} ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  //       console.log(formattedDate);
+  //     });
+  //   }
+  // }

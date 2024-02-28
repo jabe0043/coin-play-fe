@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
-
 export default function Login() {
   //////////////////URL/////////////////////
   //Local Node.js Server URL
@@ -36,11 +35,11 @@ export default function Login() {
     location.href = url;
   }
 
-
   return (
     <div>
       <p>Welcome to Coin Play</p>
       <button onClick={initiateLogin}> login </button>
+
     </div>
   );
 }

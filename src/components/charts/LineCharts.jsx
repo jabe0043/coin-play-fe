@@ -2,7 +2,6 @@ import Chart from 'chart.js/auto'; //KEEP
 import { Line } from "react-chartjs-2";
 
 export default function LineChart({ data }) {
-  console.log(data);
   const chartOptions = {
     plugins: {
       title: {display: false},
@@ -44,9 +43,9 @@ export default function LineChart({ data }) {
   };
 
   return (
-    <div style={{maxWidth:800, height:500}}>
+    // <div style={{maxWidth:800, height:500}}>
       <Line data={data} options={chartOptions} />
-    </div>
+    // </div>
   );
 }
 
