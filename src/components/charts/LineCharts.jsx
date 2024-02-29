@@ -21,7 +21,7 @@ export default function LineChart({ data }) {
           label: (context) => {
             const label = context.dataset.label || '';
             const value = context.parsed.y || 0;
-            return `${label} (USD): ${value.toFixed(4)}`;
+            return `${label} (USD): $${value.toFixed(4)}`;
           },
         },
       },
