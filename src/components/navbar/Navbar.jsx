@@ -19,7 +19,7 @@ export default function Navbar(){
 
           {/* SEARCH BAR */}
           <div style={{ padding: '1rem', margin: 0, width: '20rem', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} className="searchBar-container">
-            <input type="text" placeholder="Search" style={{ paddingLeft:'1rem', width: '100%', height: '2.5rem', borderRadius: '5px', marginBottom: 0, backgroundColor: '#fff', border: 'none', borderBottomRightRadius: 0, borderTopRightRadius: 0, verticalAlign: 'top', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px' }}
+            <input id='search' type="text" placeholder="Search" style={{ paddingLeft:'1rem', width: '100%', height: '2.5rem', borderRadius: '5px', marginBottom: 0, backgroundColor: '#fff', border: 'none', borderBottomRightRadius: 0, borderTopRightRadius: 0, verticalAlign: 'top', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px' }}
               value={textInput}
               onChange={(e) => setTextInput(e.target.value)}
               onKeyUp={(e) => e.key === 'Enter' ? handleSubmit() : null}

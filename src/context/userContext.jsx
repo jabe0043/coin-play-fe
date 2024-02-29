@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./authContext";
 
-
 const UserContext = createContext();
 
 function UserProvider(props) {
@@ -50,6 +49,8 @@ function UserProvider(props) {
     .then((response)=> setUserDoc(response.data))
     .catch((error) => console.error('Error:', error));
   }
+
+
 
   return <UserContext.Provider value={[getUserDoc, userDoc, setUserDoc, processUserTransaction]} {...props} />;
 }

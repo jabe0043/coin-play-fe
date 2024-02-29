@@ -1,9 +1,10 @@
-
 import { useUser } from '../../context/userContext';
 import InvestmentsBreakdownChart from "../charts/InvestmentsBreakdownChart";
+import { useCrypto } from '../../context/cryptoContext';
 
 export default function Holdings(){
-  const [getUserDoc, userDoc] = useUser();
+  const [getUserDoc, userDoc, setUserDoc, processUserTransaction, getHeldCoinsData] = useUser();
+  const [cryptoData, getUpdatedCryptoData, selectedHolding, setSelectedHolding] = useCrypto();
 
   const loadHoldings = () => {
     return userDoc.holdings.map((coin) => {
@@ -13,8 +14,11 @@ export default function Holdings(){
 
   const HoldingLi = ({ coin }) => {
     return (
-      <li key={coin.id} style={{ backgroundColor: '#cccccc', width:'100%', display: 'flex', justifyContent: 'space-between', alignItems:'flex-start', borderBottom: '.1rem solid #b0b0b0' }}>
-        <p>{coin.coin}</p>
+      <li key={coin.id} 
+        style={{ backgroundColor: '#cccccc', width:'100%', display: 'flex', justifyContent: 'space-between', alignItems:'flex-start', borderBottom: '.1rem solid #b0b0b0' }}
+        onClick={() => setSelectedHolding(coin)}
+        >
+        <p>{coin.coinSymbol}</p>
         <p>{coin.totalHeld}</p>
       </li>
     );

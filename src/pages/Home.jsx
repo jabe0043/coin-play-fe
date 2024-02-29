@@ -15,8 +15,6 @@ export default function Home() {
     }
   }, [authenticatedUserToken]);
 
-  console.log(userDoc);
-
   return (
     <>
       {userDoc && (
@@ -26,7 +24,6 @@ export default function Home() {
               <Portfolio userDoc={userDoc} />
               <Assets userDoc={userDoc} style={{ flexGrow: 1 }} />
             </div>
-            {/* <Holdings /> */}
           </div>
         </div>
       )}

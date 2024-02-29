@@ -5,34 +5,11 @@ import LineChart from '../components/charts/LineCharts';
 import marketData from '../utils/dummyData/marketData.json'; //DUMMY DATA;
 import coinMetaData from '../utils/dummyData/coinMetaData.json' //DUMMY DATA; for description, total volume, max supply
 import BuySell from '../components/BuySell';
-
+//TODO: NOT CONNECTED TO CRYPTO CONTEXT!!
 export default function CoinDetails(){
   const location = useLocation();
   const coinInfo = location.state?.coinInfo;
   // console.log('COIN DETAILS PAGE:', coinInfo);
-  
-  //TODO: USING DUMMY DATA FOR NOW -- marketData.jsx;
-  // const MobulaAPIKey = 'f23be6cd-5974-49dd-891a-1271034427f9';
-  // const baseUrl = 'https://api.mobula.io/api/1/market/history?asset';
-  // const assetName = coinInfo.name;
-  // let timeRange = getTimeRange('24h') //-- calculated in utils.jsx
-  // const url = `${baseUrl}=${assetName}&to=${timeRange.endDate}&from=${timeRange.startDate}`;
-  // const [chartData, setChartData] = useState(null);
-
-  // useEffect(()=>{
-  //   getHistoricalMarketData();
-  // }, [timeRange]);
-
-  // const getHistoricalMarketData = () => {
-  //   const options = {method: 'GET'};
-  //   console.log(url);
-    // fetch(url, options)
-    //   .then(response => response.json())
-    //   .then(response => console.log(response))
-    //   .then(response => setChartData(response))
-    //   .catch(err => console.error(err));
-  // }
-
 
     //----------- DUMMY DATA -----------
     const [chartData, setChartData] = useState(null);

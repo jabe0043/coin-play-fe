@@ -42,6 +42,36 @@
   };
 
 
+    //-- Prepare the historical before sending it to line chart component;
+  export const formatChartData = (data) => {
+    const labels = []; // date
+    const priceData = []; // price
+    data.price_history.forEach((datapoint) => {
+      const date = new Date(datapoint[0]);
+      const formattedDate = `${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`; // Format the date with minutes
+      labels.push(formattedDate);
+      priceData.push(datapoint[1]);
+    });
+    return {
+      labels,
+      datasets: [
+        {
+          label: 'Price',
+          data: priceData,
+          borderColor: 'rgba(75,192,192,1)',
+          borderWidth: 2,
+          fill: true,
+          backgroundColor: (context) => {
+            const gradient = context.chart.ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, 'rgba(75, 192, 192, 0.2)'); 
+            gradient.addColorStop(1, 'rgba(75, 192, 192, 0)'); 
+            return gradient;
+          },
+        },
+      ],
+    };
+  }
+
 
   // function getDates(){
   // //turn in to switch statement that returns the date formatted based on the requested timerange (ex: 24h, 1d, 1w etc.);

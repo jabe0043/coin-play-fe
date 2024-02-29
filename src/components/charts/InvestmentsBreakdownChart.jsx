@@ -8,7 +8,7 @@ import randomColor from 'randomcolor';
 */ 
 
 export default function InvestmentsBreakdownChart({ userDoc }) {
-  console.log('Portfolio Donut chart', userDoc);
+  // console.log('Portfolio Donut chart', userDoc);
 
   const totalInvested = userDoc.portfolio.invested;
   const holdings = userDoc.holdings;
@@ -21,7 +21,7 @@ export default function InvestmentsBreakdownChart({ userDoc }) {
     holdings.forEach((coin, index) => {
       const percentage = (coin.totalHeld * coin.avgCostPerCoin) / totalInvested * 100;
       chartData.push(percentage.toFixed(2));
-      labels.push(coin.coin);
+      labels.push(coin.coinSymbol);
     });
 
     return { chartData, labels, colors };

@@ -5,7 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 //-- Doughnut chart for display available balance vs invested balance
 
 export default function PortfolioOverviewChart({userDoc}){
-  console.log('Donut chart', userDoc);
+  // console.log('Donut chart', userDoc);
   const { available, invested } = userDoc.portfolio; //available funds
 
   const data = {
