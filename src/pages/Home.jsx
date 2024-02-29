@@ -3,7 +3,7 @@ import { useAuth } from '../context/authContext';
 import { useUser } from '../context/userContext';
 import Portfolio from '../components/homepage/Portfolio';
 import Assets from '../components/homepage/Assets';
-
+// import Holdings from '../components/homepage/Holdings';
 
 export default function Home() {
   const [authenticatedUserToken] = useAuth();
@@ -21,9 +21,12 @@ export default function Home() {
     <>
       {userDoc && (
         <div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', backgroundColor: '#f5f5f5' }}>
-            <Portfolio userDoc={userDoc} />
-            <Assets userDoc={userDoc} />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', backgroundColor: '#f5f5f5' }}>
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              <Portfolio userDoc={userDoc} />
+              <Assets userDoc={userDoc} style={{ flexGrow: 1 }} />
+            </div>
+            {/* <Holdings /> */}
           </div>
         </div>
       )}

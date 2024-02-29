@@ -59,7 +59,7 @@ export default function InvestmentsBreakdownChart({ userDoc }) {
 
   return (
     <div>
-      <Doughnut data={data} options={options} style={{ maxWidth: 250, maxHeight: 250 }} />
+      <Doughnut data={data} options={options} style={{ maxWidth: 200, maxHeight: 200 }} />
     </div>
   );
 }

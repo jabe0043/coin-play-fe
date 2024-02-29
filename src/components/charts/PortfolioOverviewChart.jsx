@@ -24,6 +24,8 @@ export default function PortfolioOverviewChart({userDoc}){
 
 
   return(
-      <Doughnut data={data} options = {options} style={{maxWidth:150, maxHeight:150}}/>
+    <div>
+      <Doughnut data={data} options = {options} style={{ maxWidth: 200, maxHeight: 200 }}/>
+    </div>
   );
 }

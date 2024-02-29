@@ -1,6 +1,6 @@
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 import PortfolioOverviewChart from '../charts/PortfolioOverviewChart';
-import InvestmentsBreakdownChart from "../charts/InvestmentsBreakdownChart";
+import Holdings from './Holdings';
 
 export default function Portfolio({userDoc}){
   const { balance, available, invested } = userDoc.portfolio;
@@ -12,11 +12,12 @@ export default function Portfolio({userDoc}){
         <div style={{width:'40%', height:"auto",backgroundColor:'#e0e0e0'}}>
 
           <h2>Welcome, {userDoc.name.split(" ")[0]}</h2>
-          
+          <h3>Here's a breakdown of your portfolio.</h3>
+
           <div style={{display:'flex', justifyContent:'space-between', gap:10}}>
             {/* PORTFOLIO OVERVIEW DOUGHNUT CHART */}
             <PortfolioOverviewChart userDoc={userDoc}/>
-            <div style={{flexGrow:1}}>
+            <div style={{flexGrow:1, display:'flex', flexDirection:'column', justifyContent:'center',}}>
               {/* TOTAL BALANCE */}
               <div style={{ backgroundColor: '#cccccc', display: 'flex', justifyContent: 'space-between', alignItems:'flex-start', borderBottom: '.1rem solid #b0b0b0' }}>
                 <p>Total Balance</p>
@@ -50,9 +51,7 @@ export default function Portfolio({userDoc}){
           </div>
 
           {/* INVESTMENT BREAKDOWN DOUGHNUT CHART */}
-          <div style={{display:'flex', gap: 20, paddingTop:20, justifyContent:'flex-start'}}>
-            <InvestmentsBreakdownChart userDoc={userDoc}></InvestmentsBreakdownChart>
-          </div>
+          <Holdings/>
         </div>
       }
     </>
