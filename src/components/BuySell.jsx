@@ -10,8 +10,8 @@ export default function BuySell({ coin }) {
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
 
-  console.log('USER DOC: ', userDoc);
-  console.log('coin: ', coin);
+  // console.log('USER DOC: ', userDoc);
+  // console.log('coin: ', coin);
 
   // Set the input placeholder text based on qtyInput
   useEffect(() => {
@@ -39,7 +39,6 @@ export default function BuySell({ coin }) {
   const getTotalPurchaseableQty = () => {
     let totalAmt = userDoc.portfolio.available / coin.price;
     totalAmt = Math.floor(totalAmt * 100) / 100;
-    console.log(totalAmt);
     return totalAmt.toLocaleString('en-Us')
   }
 
