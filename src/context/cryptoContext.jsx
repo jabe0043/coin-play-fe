@@ -7,9 +7,9 @@ const CryptoContext = createContext();
 
 function CryptoProvider(props) {
   const [getUserDoc, userDoc] = useUser();
-  const [selectedHolding, setSelectedHolding] = useState(null)
+  const [selectedHolding, setSelectedHolding] = useState(null) //-- selected coin from user's holding
   const [ cryptoData, setCryptoData ] = useState(null);
-  const [chartData, setChartData] = useState(null);
+  const [ chartData, setChartData ] = useState(null);
   // const [ chartTimeRange, setChartTimeRange] = useState(null);
 
 
@@ -38,14 +38,15 @@ function CryptoProvider(props) {
     const coinSymbols = `symbols=${userDoc.holdings.map((coin) => coin.coinSymbol).join(",")}`;
     let queryType = 'multi-data' 
     const url = `${baseUrl}${queryType}?${coinSymbols}`
-
-    try{
-      let updatedData = await fetchMobulaCryptoAPI(url);
-      const updatedDataArr = Object.values(updatedData); //convert trending coins from { {}, {} } to [ {}, {} ];
-      setCryptoData(updatedDataArr);
-    } catch (e){
-      console.log(e)
-    }
+    //TODO: COMMENTED OUT TO PREVENT EXCESSIVE API CALLS
+    console.log('updated crypto data url (NOT FETCHING)',url);
+    // try{
+    //   let updatedData = await fetchMobulaCryptoAPI(url);
+    //   const updatedDataArr = Object.values(updatedData); //convert trending coins from { {}, {} } to [ {}, {} ];
+    //   setCryptoData(updatedDataArr);
+    // } catch (e){
+    //   console.log(e)
+    // }
   }
 
 
@@ -54,14 +55,16 @@ function CryptoProvider(props) {
     const baseUrl = 'https://api.mobula.io/api/1/market/history?asset';
     let period = getTimeRange(timeRange)    //-- calculated in utils.jsx
     const url = `${baseUrl}=${coinName}&to=${period.endDate}&from=${period.startDate}`;
-    try{
-      let historicalData = await fetchMobulaCryptoAPI(url);
-      console.log('market data: ', historicalData);
-      let formattedChartData = formatChartData(historicalData)
-      setChartData(formattedChartData);
-    } catch (e){
-      console.log(e)
-    }
+    //TODO: COMMENTED OUT TO PREVENT EXCESSIVE API CALLS
+    console.log('Selected crypto market data url (NOT FETCHING)',url);
+    // try{
+    //   let historicalData = await fetchMobulaCryptoAPI(url);
+    //   console.log('market data: ', historicalData);
+    //   let formattedChartData = formatChartData(historicalData)
+    //   setChartData(formattedChartData);
+    // } catch (e){
+    //   console.log(e)
+    // }
   }
 
 

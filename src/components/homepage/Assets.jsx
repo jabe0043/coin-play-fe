@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useUser } from '../../context/userContext';
 import { useCrypto } from '../../context/cryptoContext';
 import LineChart from '../charts/LineCharts';
-
+import CoinInfoTop from '../CoinInfoTop';
+import CoinInfoBot from '../CoinInfoBot';
 /*
   1. - Crypto context gets updated crypto data (cryptoData) for all coins in the holdings array and puts them inside of cryptoData state var
   2. - The loaded chart data is dictated by the selectedHolding var. selectedHoldingVar contains the holding obj. from user.holdings
@@ -31,7 +32,7 @@ export default function Assets(){
       getCoinMarketData(selectedHolding.coinName, '24h')
       console.log(selectedHolding.coinName);
     }
-  }, [selectedHolding])
+  }, [selectedHolding, cryptoData])
 
 
   const loadSelectedCoinData = () => {
@@ -40,12 +41,18 @@ export default function Assets(){
       setSelectedCoin(selection)
     }
   }
+  // console.log(selectedCoin);
+
+  
 
   return(
-    <div style={{ minWidth:'50vw', backgroundColor: '#e0e0e0' }}>
-      <h2> Assets </h2>
-      {(userDoc.holdings.length > 0) && chartData &&
+    <div style={{ minWidth:'50vw', backgroundColor: '#f5f5f5' }}>
+      {(userDoc.holdings.length > 0) && chartData && selectedCoin &&
+      <>
+        <CoinInfoTop coinInfo={selectedCoin}></CoinInfoTop>
         <LineChart data={chartData} />
+        <CoinInfoBot coinInfo={selectedCoin}></CoinInfoBot>
+      </>
       }
     </div>
 

@@ -4,7 +4,7 @@ import { useCrypto } from '../../context/cryptoContext';
 
 export default function Holdings(){
   const [getUserDoc, userDoc, setUserDoc, processUserTransaction, getHeldCoinsData] = useUser();
-  const [cryptoData, getUpdatedCryptoData, selectedHolding, setSelectedHolding] = useCrypto();
+  const [cryptoData, getUpdatedCryptoData, selectedHolding, setSelectedHolding, getCoinMarketData, chartData, selectedCoin, setSelectedCoin] = useCrypto();
 
   const loadHoldings = () => {
     return userDoc.holdings.map((coin) => {
