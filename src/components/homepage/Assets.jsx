@@ -46,7 +46,7 @@ export default function Assets(){
   
 
   return(
-    <div style={{ minWidth:'50vw', backgroundColor: '#f5f5f5' }}>
+    <div style={{ minWidth:'50vw', backgroundColor:'#e0e0e0' }}>
       {(userDoc.holdings.length > 0) && chartData && selectedCoin &&
       <>
         <CoinInfoTop coinInfo={selectedCoin}></CoinInfoTop>
