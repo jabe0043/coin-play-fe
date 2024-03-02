@@ -1,34 +1,35 @@
 
 import coinMetaData from '../utils/dummyData/coinMetaData.json' //DUMMY DATA; for description, total volume, max supply
 
-
+//TODO: COIN METADATA IS DUMMY DATA
 export default function CoinInfoBot({coinInfo}){
+  console.log('coin info bot component', coinInfo)
+  
+  const cardInfo = [
+    { label: 'MARKET CAP', source: coinInfo.market_cap.toLocaleString('en-Us') },
+    { label: '7D VOLUME', source: coinInfo.volume_7d.toLocaleString('en-Us') },
+    { label: 'VOLUME', source: coinMetaData.data.volume.toLocaleString('en-Us') },
+    { label: 'CIRC. SUPPLY', source: coinMetaData.data.circulating_supply.toLocaleString('en-Us') },
+    { label: 'TOTAL SUPPLY', source: coinMetaData.data.total_supply.toLocaleString('en-Us') },
+    { label: 'PLACEHOLDER', source:'PLACEHOLDER'},
+  ];
 
-  // console.log('coin info bot component', coinInfo)
+
+  const buildCoinInfoCards = () =>{
+    const CoinInfocards = cardInfo.map(({label, source}) => (
+      <div className='coinInfo__card' style={{padding:'.5rem', borderRadius:'.5rem'}}key={label}>
+        <small style={{color:'gray'}}>{label}</small>
+        <p>{source}</p>
+      </div>
+    ));
+    return CoinInfocards;
+  };
+
 
 
   return(
-    <div style={{display:'flex', justifyContent:'space-between', paddingTop:20}}>
-          <div style={{display:'flex', flexDirection:'column'}}>
-            <p>MARKET CAP</p>
-            <p style={{alignSelf:'center', marginTop:0}}>{coinInfo.market_cap}</p>
-          </div>
-          <div style={{display:'flex', flexDirection:'column'}}>
-            <p>7D VOLUME</p>
-            <p style={{alignSelf:'center', marginTop:0}}>{coinInfo.volume_7d}</p>
-          </div>
-          <div style={{display:'flex', flexDirection:'column'}}>
-            <p>VOLUME</p>
-            <p style={{alignSelf:'center', marginTop:0}}>{coinMetaData.data.volume}</p>
-          </div>
-          <div style={{display:'flex', flexDirection:'column'}}>
-            <p>CIRCULATING SUPPLY</p>
-            <p style={{alignSelf:'center', marginTop:0}}>{coinMetaData.data.circulating_supply}</p>
-          </div>
-          <div style={{display:'flex', flexDirection:'column'}}>
-            <p>TOTAL SUPPLY</p>
-            <p style={{alignSelf:'center', marginTop:0}}>{coinMetaData.data.total_supply}</p>
-          </div>
-        </div>
+    <div className='coinInfo__cards--container'>
+      {buildCoinInfoCards()}
+    </div>
   )
 }

@@ -25,7 +25,7 @@ const theme = {
     fonts: ["Roboto"],
     fontSizes: {
       xs: "0.78rem",
-      s: "1.1rem",
+      s: "1rem",
       m: "1.3rem",
       l: "1.733rem",
       xl: "1.85rem",

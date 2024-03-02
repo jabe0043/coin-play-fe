@@ -53,7 +53,7 @@ export default function Assets(){
         <>
           <CoinInfoTop coinInfo={selectedCoin} />
           <LineChart data={chartData} />
-          {/* <CoinInfoBot coinInfo={selectedCoin} /> */}
+          <CoinInfoBot coinInfo={selectedCoin} />
         </>
       }
     </Styled.AssetsContainer>

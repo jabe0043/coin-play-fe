@@ -286,12 +286,12 @@ select {
 
 //*****-- ASSETS SECTION
 
-//-- CoinInfoTop() Component
+//--> CoinInfoTop() Component
 
 .timePeriod__btn--container {
   flex-grow:1;
   display: grid;
-  grid-template-columns: repeat(4, .5fr); //6 rows of btns on mobile
+  grid-template-columns: repeat(4, .5fr); //4 btns per row on mobile
   direction: rtl; //new rows start from right side
   text-align: left; 
   gap: .25rem
@@ -307,10 +307,30 @@ select {
 }
 
 
-//-- CoinInfoBot() Component
+
+//--> CoinInfoBot() Component 
+
+.coinInfo__cards--container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:.5rem;
+  padding-top:1rem;
+}
+
+.coinInfo__card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background-color:${({ theme }) => theme.colors.white};
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  color: ${({ theme }) => theme.colors.charcoal};
+}
 
 
-//--DESKTOP ASSETS SECTION
+
+//--DESKTOP ASSETS SECTION ( MEDIA QUERY )
 @media screen and (min-width: 600px) {
   .timePeriod__btn--container {
     grid-template-columns: repeat(auto-fill, minmax(2rem, 1fr));
@@ -322,6 +342,15 @@ select {
     height:2rem;
     border:none;
     border-radius:1rem;
+  }
+
+
+  .coinInfo__cards--container {
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); /* Adjust the minmax values as needed for desktop */
+  }
+
+  .coinInfo__card{
+    font-size: ${({ theme }) => theme.fontSizes.s};
   }
 }
 

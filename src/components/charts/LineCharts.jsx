@@ -2,6 +2,8 @@ import Chart from 'chart.js/auto'; //KEEP
 import { Line } from "react-chartjs-2";
 
 export default function LineChart({ data }) {
+  const isMobile = window.innerWidth <= 768; //-- If mobile screen, load max 6 x axis ticks instead of 12;
+
   const chartOptions = {
     plugins: {
       title: {display: false},
@@ -31,7 +33,8 @@ export default function LineChart({ data }) {
       x: {
         grid:{display: false, drawTicks: true},
         ticks: {
-          maxTicksLimit: 12,
+          // maxTicksLimit: 12,
+          maxTicksLimit: isMobile ? 6 : 12, // Adjust the limit for mobile and desktop
           maxRotation: 0,
           minRotation: 0,
         },
