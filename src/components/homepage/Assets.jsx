@@ -46,13 +46,13 @@ export default function Assets(){
   
 
   return(
-    <div style={{ minWidth:'50vw', backgroundColor:'#e0e0e0' }}>
+    <div style={{ width:'50vw', backgroundColor:'#e0e0e0' }}>
       {(userDoc.holdings.length > 0) && chartData && selectedCoin &&
-      <>
-        <CoinInfoTop coinInfo={selectedCoin}></CoinInfoTop>
-        <LineChart data={chartData} />
-        <CoinInfoBot coinInfo={selectedCoin}></CoinInfoBot>
-      </>
+        <>
+          <CoinInfoTop coinInfo={selectedCoin} />
+          <LineChart data={chartData} />
+          <CoinInfoBot coinInfo={selectedCoin} />
+        </>
       }
     </div>
 

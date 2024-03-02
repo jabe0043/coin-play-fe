@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import SearchBar from '../SearchBar';
 import { NavLink, useNavigate } from 'react-router-dom';
-import * as Styled from '../../../styled/components';
+import * as Styled from '../../styled/components';
 
 export default function Navbar() {
   const navigate = useNavigate();

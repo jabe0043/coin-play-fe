@@ -1,6 +1,7 @@
 import { useUser } from '../../context/userContext';
 import InvestmentsBreakdownChart from "../charts/InvestmentsBreakdownChart";
 import { useCrypto } from '../../context/cryptoContext';
+import * as Styled from '../../styled/components'
 
 export default function Holdings(){
   const [getUserDoc, userDoc, setUserDoc, processUserTransaction, getHeldCoinsData] = useUser();
@@ -15,7 +16,7 @@ export default function Holdings(){
   const HoldingLi = ({ coin }) => {
     return (
       <li key={coin.id} 
-        style={{ backgroundColor: '#cccccc', width:'100%', display: 'flex', justifyContent: 'space-between', alignItems:'flex-start', borderBottom: '.1rem solid #b0b0b0' }}
+        style={{ display: 'flex', justifyContent: 'space-between', alignItems:'flex-start', borderBottom: '.1rem solid #b0b0b0' }}
         onClick={() => setSelectedHolding(coin)}
         >
         <p>{coin.coinSymbol}</p>
@@ -26,16 +27,16 @@ export default function Holdings(){
 
   return (
     <>
-      <h3 style={{marginBottom:0}}>Your Holdings</h3>
-      <div style={{display:'flex', gap: 10, justifyContent:'flex-start', alignItems:'center'}}>
-        <InvestmentsBreakdownChart userDoc={userDoc}></InvestmentsBreakdownChart>
-        <div style={{ width: '100%', backgroundColor: '#e0e0e0' }}>
-          <ul style={{padding:0, width:'100%'}}>
+      <h3 style={{marginBottom:0, paddingTop:'2rem', paddingBottom:'1rem'}}>Your Holdings</h3>
+      <Styled.PortfolioContainer>
+        <InvestmentsBreakdownChart userDoc={userDoc}/>
+        <div style={{ width: '100%', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <ul style={{padding:0}}>
             {loadHoldings()}
           </ul>
         </div>
-      </div>
-  </>
+      </Styled.PortfolioContainer>
+    </>
 
   );
 }

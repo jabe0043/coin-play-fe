@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as Styled from '../../styled/components';
+import * as Styled from '../styled/components';
 import { VscSearch } from 'react-icons/vsc';
 
 

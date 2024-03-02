@@ -2,6 +2,7 @@ import Chart from 'chart.js/auto'; //KEEP
 import { useEffect } from 'react';
 import { Doughnut } from "react-chartjs-2";
 import randomColor from 'randomcolor';
+import * as Styled from '../../styled/components'
 
 /* INVESTMENT BREAKDOWN DOUGNUT CHART 
   - Displays the investment breakdown for each coin as a percentage relative to the user's total investments
@@ -58,8 +59,8 @@ export default function InvestmentsBreakdownChart({ userDoc }) {
   };
 
   return (
-    <div>
-      <Doughnut data={data} options={options} style={{ maxWidth: 200, maxHeight: 200 }} />
-    </div>
+    <Styled.DoughnutChartContainer>
+      <Doughnut data={data} options={options} />
+    </Styled.DoughnutChartContainer>
   );
 }

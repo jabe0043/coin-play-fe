@@ -143,7 +143,7 @@ select {
 }
 
 .container{                           
-  width: min(70em, 100%);
+  width: min(100em, 100%);
   margin: 0 auto;
   padding:1.5rem;
 }
@@ -215,7 +215,7 @@ select {
   box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 16px; /* Increased the box-shadow values */
 }
 
-//MOBILE
+//-------- MOBILE
 @media screen and (max-width: 768px) {
   .nav-sectionUl {
     display: none; 
@@ -253,7 +253,7 @@ select {
 }
 
 
-//DESKTOP
+//-------- DESKTOP
 @media screen and (min-width: 769px) {
   .hamburger-btn {
     display: none;
@@ -264,5 +264,14 @@ select {
   }
 }
 
+/************** END NAVBAR SECTION **************/
 
+
+/************** HOME SECTION **************/
+
+
+
+
+
+}
 `;
