@@ -17,7 +17,7 @@ export default function InvestmentsBreakdownChart({ userDoc }) {
   const getChartData = () => {
     const chartData = [];
     const labels = [];
-    const colors = randomColor({ count: holdings.length, hue: 'random', luminosity: 'light' });
+    const colors = randomColor({ count: holdings.length, hue: "#18a4e0", luminosity: 'light' });
 
     holdings.forEach((coin, index) => {
       const percentage = (coin.totalHeld * coin.avgCostPerCoin) / totalInvested * 100;

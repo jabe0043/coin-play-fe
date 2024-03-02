@@ -22,10 +22,13 @@ export default function Home() {
     <>
     <Navbar />
       {userDoc && (
-          <Styled.HomePageContainer className='container' >
+        <div className='container'>
+          <h1>Welcome, {userDoc.name.split(" ")[0]}</h1>
+          <Styled.HomePageContainer  >
             <Portfolio userDoc={userDoc} />
             <Assets userDoc={userDoc} />
           </Styled.HomePageContainer>
+        </div>
       )}
     </>
   );

@@ -58,13 +58,13 @@
         {
           label: 'Price',
           data: priceData,
-          borderColor: 'rgba(75,192,192,1)',
-          borderWidth: 2,
+          borderColor: "rgba(24, 164, 224, 1)",
+          borderWidth: 1,
           fill: true,
           backgroundColor: (context) => {
             const gradient = context.chart.ctx.createLinearGradient(0, 0, 0, 400);
-            gradient.addColorStop(0, 'rgba(75, 192, 192, 0.2)'); 
-            gradient.addColorStop(1, 'rgba(75, 192, 192, 0)'); 
+            gradient.addColorStop(0, "rgba(24, 164, 224, .2)"); 
+            gradient.addColorStop(1, "rgba(24, 164, 224, 0)"); 
             return gradient;
           },
         },

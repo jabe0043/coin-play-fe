@@ -16,8 +16,8 @@ export default function Holdings(){
   const HoldingLi = ({ coin }) => {
     return (
       <li key={coin.id} 
-        style={{ display: 'flex', justifyContent: 'space-between', alignItems:'flex-start', borderBottom: '.1rem solid #b0b0b0' }}
-        onClick={() => setSelectedHolding(coin)}
+      style={{ display: 'flex', justifyContent: 'space-between', padding: '.5rem', alignItems: 'flex-start', borderBottom: '1px solid #D3DDE680' }}
+      onClick={() => setSelectedHolding(coin)}
         >
         <p>{coin.coinSymbol}</p>
         <p>{coin.totalHeld}</p>
@@ -26,8 +26,8 @@ export default function Holdings(){
   };
 
   return (
-    <>
-      <h3 style={{marginBottom:0, paddingTop:'2rem', paddingBottom:'1rem'}}>Your Holdings</h3>
+    <div className='whiteShadow'>
+      <h2>Your Holdings</h2>
       <Styled.PortfolioContainer>
         <InvestmentsBreakdownChart userDoc={userDoc}/>
         <div style={{ width: '100%', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -36,7 +36,7 @@ export default function Holdings(){
           </ul>
         </div>
       </Styled.PortfolioContainer>
-    </>
+    </div>
 
   );
 }

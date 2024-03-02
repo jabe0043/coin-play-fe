@@ -4,6 +4,8 @@ import { useCrypto } from '../../context/cryptoContext';
 import LineChart from '../charts/LineCharts';
 import CoinInfoTop from '../CoinInfoTop';
 import CoinInfoBot from '../CoinInfoBot';
+import * as Styled from '../../styled/components';
+
 /*
   1. - Crypto context gets updated crypto data (cryptoData) for all coins in the holdings array and puts them inside of cryptoData state var
   2. - The loaded chart data is dictated by the selectedHolding var. selectedHoldingVar contains the holding obj. from user.holdings
@@ -46,7 +48,7 @@ export default function Assets(){
   
 
   return(
-    <div style={{ width:'50vw', backgroundColor:'#e0e0e0' }}>
+    <Styled.AssetsContainer className='whiteShadow'>
       {(userDoc.holdings.length > 0) && chartData && selectedCoin &&
         <>
           <CoinInfoTop coinInfo={selectedCoin} />
@@ -54,7 +56,7 @@ export default function Assets(){
           <CoinInfoBot coinInfo={selectedCoin} />
         </>
       }
-    </div>
+    </Styled.AssetsContainer>
 
   )
 }

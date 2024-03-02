@@ -269,8 +269,17 @@ select {
 
 /************** HOME SECTION **************/
 
+.whiteShadow{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: ${({ theme }) => theme.colors.white};
+  padding:1rem;
+  border-radius: .5rem;
+  margin-bottom: 2rem;
+}
 
-
+.whiteShadow h2{
+  font-weight:${({ theme }) => theme.fontWeights.regular}
+}
 
 
 }

@@ -10,6 +10,7 @@ const theme = {
       darkCharcoal: "#222831",
       black: "#1E1E1E",
       //-- blues
+      lightBlue: "#18a4e0",
       sereneBlue: "#D3DDE6",
       slateBlueLight: "#9BA4B4",
       slateBlueDark: "#394867",

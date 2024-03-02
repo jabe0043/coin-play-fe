@@ -25,7 +25,9 @@ const SearchBar = styled.div`
   align-items: center;
   justify-content: flex-start;
 `
-
+/***********************************************
+-- HomePage Component
+***********************************************/
 const HomePageContainer = styled.div`
   height: auto;
   display: flex; 
@@ -41,7 +43,7 @@ const HomePageContainer = styled.div`
   }
 `
 
-
+//main cointainer for portfolio and holdings
 const PortfolioContainer = styled.div`
   display:flex;
   flex-direction: column;
@@ -68,7 +70,18 @@ const DoughnutChartContainer = styled.div`
   }
 `
 
+//-- Assets section
+const AssetsContainer = styled.div`
+  width: 100%;
+
+  //--Desktop
+  @media screen and (min-width: 950px) {
+    width:50vw;
+  }
+`
+
+//-- End Assets section
 
 
 
-export{NavHeader, Nav, SearchBar, HomePageContainer, PortfolioContainer, DoughnutChartContainer };
+export{NavHeader, Nav, SearchBar, HomePageContainer, PortfolioContainer, DoughnutChartContainer, AssetsContainer };

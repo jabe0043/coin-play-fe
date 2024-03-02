@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Trending from '../components/Trending';
 import coinData from '../utils/dummyData/coinData.json'; //DUMMY DATA;
+import Navbar from '../components/navbar/Navbar'; 
 
 
 export default function Explore(){
@@ -44,6 +45,7 @@ export default function Explore(){
   return(
 
     <div>
+      <Navbar/>
       <p>EXPLORE PAGE</p>
       <div style={{width:'100%', backgroundColor:'#e0e0e0', justifySelf:'flex-start'}}>
         { trendingCoins &&

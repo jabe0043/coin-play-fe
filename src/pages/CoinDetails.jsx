@@ -7,6 +7,8 @@ import coinMetaData from '../utils/dummyData/coinMetaData.json' //DUMMY DATA; fo
 import BuySell from '../components/BuySell';
 import CoinInfoTop from '../components/CoinInfoTop';
 import CoinInfoBot from '../components/CoinInfoBot';
+import Navbar from '../components/navbar/Navbar'; 
+
 //TODO: NOT CONNECTED TO CRYPTO CONTEXT!!
 export default function CoinDetails(){
   const location = useLocation();
@@ -65,6 +67,8 @@ export default function CoinDetails(){
 
 
   return(
+    <>
+    <Navbar/>
     <div style={{display:'flex', gap:10}}>
       {/* TODO: This whole thing should be a component */}
       <div style={{maxWidth:'60%', backgroundColor:'#e0e0e0', padding:10, borderRadius:10}}>   
@@ -79,6 +83,7 @@ export default function CoinDetails(){
 
       <BuySell coin={coinInfo}></BuySell>
     </div>
+    </>
   )
 }
 

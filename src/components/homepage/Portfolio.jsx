@@ -7,49 +7,39 @@ export default function Portfolio({userDoc}){
   const { balance, available, invested } = userDoc.portfolio;
 
 
+  const buildPortfolioMetrics = (label, value) => (
+    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '.5rem', alignItems: 'flex-start', borderBottom: '1px solid #D3DDE680' }}>
+      <p>{label}</p>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 10 }}>
+        <p>{`$ ${value.toFixed(2).toLocaleString('en-US')}`}</p>
+      </div>
+    </div>
+  )
+
+
+
   return(
     <>
       {userDoc &&
         <div>
-          <h2>Welcome, {userDoc.name.split(" ")[0]}</h2>
-          <h3>Here's a breakdown of your portfolio.</h3>
-
-          <Styled.PortfolioContainer>
-            {/* PORTFOLIO OVERVIEW DOUGHNUT CHART */}
-            <PortfolioOverviewChart userDoc={userDoc}/>
-            <div style={{ width: '100%', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              {/* TOTAL BALANCE */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems:'flex-start', borderBottom: '.1rem solid #b0b0b0' }}>
-                <p>Total Balance</p>
-                <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 10 }}>
-                  {/* TODO: Conditionally render the arrows and % only if not 0% */}
-                  <div style={{ display: 'flex' }}>
-                    <p>0.00%</p>
-                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                      <MdOutlineArrowDropUp style={{ color: 'green' }} />
-                      {/* <MdOutlineArrowDropDown style={{ color: 'red' }} /> */}
-                    </div>
+          <div className="whiteShadow">
+            <h2>Here's a breakdown of your portfolio</h2>
+            <Styled.PortfolioContainer>
+              <PortfolioOverviewChart userDoc={userDoc}/>
+              <div style={{ width: '100%', gap:10, flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+                <div style={{ display: 'flex', justifyContent:'flex-end' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <MdOutlineArrowDropUp style={{ color: 'green' }} />
+                    {/* <MdOutlineArrowDropDown style={{ color: 'red' }} /> */}
                   </div>
-                  <p>{`$ ${balance.toLocaleString('en-US')}`}</p>
+                  <p style={{fontWeight:'600'}}>0.00%</p>
                 </div>
+                {buildPortfolioMetrics('Balance', balance)}
+                {buildPortfolioMetrics('Available', available)}
+                {buildPortfolioMetrics('Invested', invested)}
               </div>
-              {/* AVAILABLE BALANCE */}
-              <div style={{ display:'flex', justifyContent:'space-between', borderBottom: '.1rem solid #b0b0b0'}}>
-                <p>Available</p>
-                <div style={{ display:'flex', justifyContent:'center', alignItems:'center', gap:10}}>
-                  <p>{`$ ${available.toFixed(2).toLocaleString('en-Us')}`}</p>
-                </div>
-              </div>
-              {/* INVESTED BALANCE */}
-              <div style={{ display:'flex', justifyContent:'space-between', borderBottom: '.1rem solid #b0b0b0'}}>
-                <p>Invested</p>
-                <div style={{ display:'flex', justifyContent:'center', alignItems:'center', gap:10}}>
-                  <p>{`$ ${invested.toFixed(2).toLocaleString('en-Us')}`}</p>
-                </div>
-              </div>
-            </div>
-          </Styled.PortfolioContainer>
-
+            </Styled.PortfolioContainer>
+          </div>  
           {/* INVESTMENT BREAKDOWN DOUGHNUT CHART */}
           <Holdings/>
         </div>

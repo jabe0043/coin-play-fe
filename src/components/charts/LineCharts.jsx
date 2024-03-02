@@ -11,9 +11,9 @@ export default function LineChart({ data }) {
         intersect: false,
       },
       tooltip: {
-        backgroundColor:'#e0e0e0',
-        bodyColor:'#4d4d4d',
-        titleColor:'#333333',
+        backgroundColor:'#f1f6f9',
+        bodyColor:'#393e46',
+        titleColor:'#14274e',
         titleFont:{weight:'bold'},
         displayColors:false,
         intersect: false,
@@ -37,15 +37,13 @@ export default function LineChart({ data }) {
         },
       },
       y:{
-        grid:{color:'#f0f0f0', drawTicks: false},
+        grid:{color:'#f1f6f9', drawTicks: false},
       }
     }
   };
 
   return (
-    // <div style={{maxWidth:800, height:500}}>
       <Line data={data} options={chartOptions} />
-    // </div>
   );
 }
 
