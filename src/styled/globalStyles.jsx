@@ -267,8 +267,10 @@ select {
 /************** END NAVBAR SECTION **************/
 
 
-/************** HOME SECTION **************/
 
+/**************************************************/
+/************** HOME SECTION **************/
+/**************************************************/
 .whiteShadow{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   background-color: ${({ theme }) => theme.colors.white};
@@ -282,5 +284,53 @@ select {
 }
 
 
+//*****-- ASSETS SECTION
+
+//-- CoinInfoTop() Component
+
+.timePeriod__btn--container {
+  flex-grow:1;
+  display: grid;
+  grid-template-columns: repeat(4, .5fr); //6 rows of btns on mobile
+  direction: rtl; //new rows start from right side
+  text-align: left; 
+  gap: .25rem
 }
+
+
+.timePeriod__btn{
+  width:auto; 
+  max-height:1.5rem;
+  border:none;
+  border-radius:1rem;
+  text-align: center;
+}
+
+
+//-- CoinInfoBot() Component
+
+
+//--DESKTOP ASSETS SECTION
+@media screen and (min-width: 600px) {
+  .timePeriod__btn--container {
+    grid-template-columns: repeat(auto-fill, minmax(2rem, 1fr));
+    gap: 1rem
+  }
+
+  .timePeriod__btn{
+    width:3rem; 
+    height:2rem;
+    border:none;
+    border-radius:1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
 `;
