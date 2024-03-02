@@ -1,18 +1,37 @@
+import { useEffect, useState } from "react";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
+import { BiDollar } from "react-icons/bi";
 
 
 //-- This section displays information above the line chart. 
 export default function CoinInfoTop({coinInfo}){
+  const [selectedTimeRangeBtn, setSelectedTimeRangeBtn] = useState('24H'); //TODO: IMPLEMENT to fetch updated time range market data in useEffect
   const timeRanges = ['1H', '24H', '7D', '3M', '6M', '1Y', 'ALL'];
+
+  //TODO:
+  useEffect(()=>{
+    console.log(selectedTimeRangeBtn);
+  }, [selectedTimeRangeBtn])
 
   // console.log('CoinInfoTop Component', coinInfo);
 
-  const BuildTimePeriodBtns= () =>{
-    const btns = timeRanges.map((timeRange, index) => (
-      <button className={'timePeriod__btn'} key={index}><small>{timeRange}</small></button>
-    ));
+  const BuildTimePeriodBtns = () => {
+    const btns = timeRanges.map((timeRange, index) => {
+      return (
+        selectedTimeRangeBtn &&
+          <button
+            id={index}
+            className='timePeriod__btn'
+            key={index}
+            style={{ backgroundColor: timeRanges[index] === selectedTimeRangeBtn ? '#D3DDE6' : '#f1f6f9' }}
+            onClick={() => setSelectedTimeRangeBtn(timeRanges[index])}
+          >
+            <small>{timeRange}</small>
+          </button>
+      )});
     return btns;
   };
+  
 
   return(
     <>
@@ -30,19 +49,20 @@ export default function CoinInfoTop({coinInfo}){
     </div>
     
     {/* PRICE info and time range btns  */}
-    <div style={{display:'flex', justifyContent:'space-between', gap:50}}>
+    <div style={{display:'flex', justifyContent:'space-between', gap:50, paddingBottom:'1rem'}}>
       <div style={{ display: 'flex', flexDirection:'column', justifyContent: 'flex-start' }}>
-        <p style={{margin:0}}>
-          <strong>{`$${coinInfo.price.toFixed(2).toLocaleString('en-Us')}`}</strong>
+        <p style={{margin:0, display:'flex', alignItems:'center'}}>
+          <BiDollar size={16}/>
+          <strong>{`${coinInfo.price.toFixed(2).toLocaleString('en-US')}`}</strong>
           <span style={{color:'gray', paddingLeft:5}}><small>{`USD`}</small></span>
         </p>
         <p style={{marginTop:-5, color:coinInfo.price_change_24h > 0 ? 'green':'red', display:'flex', alignItems:'center'}}>
           {
             coinInfo.price_change_24h > 0
             ?
-            <MdOutlineArrowDropUp style={{ color: 'green' }} />
+            <MdOutlineArrowDropUp style={{ color: 'green' }} size={20} />
             :
-            <MdOutlineArrowDropDown style={{ color: 'red' }} />
+            <MdOutlineArrowDropDown style={{ color: 'red' }} size={20} />
           }
           <strong>{`${coinInfo.price_change_24h.toFixed(2).toLocaleString('en-Us')}%`}</strong>
           <span style={{color:'gray', paddingLeft:5}}><small>{`24H`}</small></span>
@@ -50,7 +70,7 @@ export default function CoinInfoTop({coinInfo}){
       </div>
       
       <div className="timePeriod__btn--container">
-        {BuildTimePeriodBtns()}
+        {selectedTimeRangeBtn && BuildTimePeriodBtns()}
       </div>
     </div>
     </>

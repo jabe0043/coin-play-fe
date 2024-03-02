@@ -14,11 +14,23 @@ export default function Holdings(){
   };
 
   const HoldingLi = ({ coin }) => {
-    return (
-      <li key={coin.id} 
-      style={{ display: 'flex', justifyContent: 'space-between', padding: '.5rem', alignItems: 'flex-start', borderBottom: '1px solid #D3DDE680' }}
-      onClick={() => setSelectedHolding(coin)}
-        >
+    return ( 
+      selectedHolding &&
+      <li
+        key={coin.id}
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '.5rem',
+          alignItems: 'flex-start',
+          borderBottom: '1px solid #D3DDE630',
+          boxShadow:
+            selectedHolding.coinName === coin.coinName
+              ? 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px'
+              : 'none',
+        }}
+        onClick={() => {setSelectedHolding(coin)}}
+      >
         <p>{coin.coinSymbol}</p>
         <p>{coin.totalHeld}</p>
       </li>

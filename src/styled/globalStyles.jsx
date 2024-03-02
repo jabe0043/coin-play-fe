@@ -179,7 +179,7 @@ select {
   border-radius: 5px;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-  background-color: ${({ theme }) => theme.colors.midnightBlue};
+  background-color: ${({ theme }) => theme.colors.white};
   border: 0;
   display: flex;
   align-items: center; 
@@ -286,15 +286,16 @@ select {
 
 //*****-- ASSETS SECTION
 
-//--> CoinInfoTop() Component
-
+//              --> CoinInfoTop() Component <--
 .timePeriod__btn--container {
   flex-grow:1;
   display: grid;
   grid-template-columns: repeat(4, .5fr); //4 btns per row on mobile
   direction: rtl; //new rows start from right side
   text-align: left; 
-  gap: .25rem
+  gap: 0, .25rem
+  align-content: end; // align the content at the bottom
+  align-items: end; // align individual items at the bottom
 }
 
 
@@ -304,6 +305,8 @@ select {
   border:none;
   border-radius:1rem;
   text-align: center;
+  margin: 2px;
+  margin-top: 1px;
 }
 
 
@@ -321,11 +324,20 @@ select {
   display:flex;
   flex-direction:column;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start;
   background-color:${({ theme }) => theme.colors.white};
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   font-size: ${({ theme }) => theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.charcoal};
+}
+
+.coinInfo__card--title {
+  color: #9BA4B4;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 
@@ -342,9 +354,11 @@ select {
     height:2rem;
     border:none;
     border-radius:1rem;
+    margin-bottom: 6px;
   }
 
 
+  //-- Bottom chart section
   .coinInfo__cards--container {
     grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); /* Adjust the minmax values as needed for desktop */
   }
@@ -352,10 +366,6 @@ select {
   .coinInfo__card{
     font-size: ${({ theme }) => theme.fontSizes.s};
   }
-}
-
-
-
 
 
 

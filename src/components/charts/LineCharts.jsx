@@ -33,14 +33,18 @@ export default function LineChart({ data }) {
       x: {
         grid:{display: false, drawTicks: true},
         ticks: {
-          // maxTicksLimit: 12,
-          maxTicksLimit: isMobile ? 6 : 12, // Adjust the limit for mobile and desktop
+          maxTicksLimit: isMobile ? 6 : 12, // X axis text limit for mobile and desktop
           maxRotation: 0,
           minRotation: 0,
         },
       },
       y:{
         grid:{color:'#f1f6f9', drawTicks: false},
+        ticks: {
+          maxTicksLimit: isMobile ? 4 : 7, // Y axis text limit for mobile and desktop
+          maxRotation: 0,
+          minRotation: 0,
+        },
       }
     }
   };
