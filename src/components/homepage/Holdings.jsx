@@ -13,6 +13,7 @@ export default function Holdings(){
     });
   };
 
+  //TODO: ADD coin logo in holdings to better style list of holdings
   const HoldingLi = ({ coin }) => {
     return ( 
       selectedHolding &&
@@ -23,6 +24,7 @@ export default function Holdings(){
           justifyContent: 'space-between',
           padding: '.5rem',
           alignItems: 'flex-start',
+          borderRadius: '.5rem',
           borderBottom: '1px solid #D3DDE630',
           boxShadow:
             selectedHolding.coinName === coin.coinName

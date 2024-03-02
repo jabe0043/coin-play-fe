@@ -37,8 +37,8 @@ export default function CoinInfoTop({coinInfo}){
     <>
         {/* Chart TITLE Section */}
     <div style={{ display: 'flex', justifyContent: 'flex-start', borderBottom: '1px solid #D3DDE680', paddingBottom:'.5rem', marginBottom:'.5rem'}}>
-      <img src={coinInfo.logo} alt={`${coinInfo.name} Logo`} style={{ maxWidth: '30px', maxHeight: '30px', borderRadius: 20 }} />
-      <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 10 }}>
+      <img src={coinInfo.logo} alt={`${coinInfo.name} Logo`} style={{ maxWidth: '40px', maxHeight: '40px', borderRadius: 20 }} />
+      <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 8 }}>
         <h2 style={{ margin: 0, lineHeight: 1 }}>{coinInfo.name}</h2>
         <small style={{ margin: 0 }}> {coinInfo.symbol}</small>
       </div>
