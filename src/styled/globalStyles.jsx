@@ -179,7 +179,7 @@ select {
   border-radius: 5px;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.midnightBlue};
   border: 0;
   display: flex;
   align-items: center; 
@@ -222,12 +222,19 @@ select {
   }
 
   .hamburger-btn {
-    display: inline-block;
+    // display: inline-block;
+    display:flex;
+    align-items:center;
+    height: 100%;
+    background-color: ${({ theme }) => theme.colors.white};
+    border: none;
+    color: ${({ theme }) => theme.colors.midnightBlue};
+    font-size: 2rem;
   }
 
   .drawer {
     display: block;
-    background-color: ${({ theme }) => theme.colors.silverWhite};
+    background-color: ${({ theme }) => theme.colors.white};
     height:100%;
     transform: translateX(0);
   }

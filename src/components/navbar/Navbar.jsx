@@ -3,6 +3,7 @@ import { useAuth } from '../../context/authContext';
 import SearchBar from '../SearchBar';
 import { NavLink, useNavigate } from 'react-router-dom';
 import * as Styled from '../../styled/components';
+import { RxHamburgerMenu } from "react-icons/rx";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function Navbar() {
 
           {/* Hamburger button */}
           <button className='hamburger-btn' onClick={toggleDrawer}>
-            ☰
+            <RxHamburgerMenu/>
           </button>
 
           {/*MOBLE DRAWER */}
