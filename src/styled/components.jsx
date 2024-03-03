@@ -31,7 +31,8 @@ const SearchBar = styled.div`
 const HomePageContainer = styled.div`
   height: auto;
   display: flex; 
-  flex-direction: column; 
+  flex-direction: column;
+  gap:1rem;
 
   //--Desktop
   @media screen and (min-width: 950px) {

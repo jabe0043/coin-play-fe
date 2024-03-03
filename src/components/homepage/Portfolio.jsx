@@ -21,7 +21,7 @@ export default function Portfolio({userDoc}){
   return(
     <>
       {userDoc &&
-        <div>
+        <div style={{display:'flex', flexDirection:'column', gap:'1rem'}}>
           <div className="whiteShadow">
             <h2>Here's a breakdown of your portfolio</h2>
             <Styled.PortfolioContainer>

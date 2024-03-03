@@ -284,7 +284,7 @@ select {
   background-color: ${({ theme }) => theme.colors.white};
   padding:1rem;
   border-radius: .5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
 }
 
 .whiteShadow h2{
@@ -382,7 +382,7 @@ select {
 
 
   /**************************************************/
-  /************** EXPLORE SECTION **************/
+  /************** EXPLORE PAGE SECTION **************/
   /**************************************************/
 
 //-- INFINITE CAROUSEL slider section (MostTrader())
@@ -396,8 +396,7 @@ select {
   }
   
   .carousel-container {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: .5rem;
     overflow: hidden;
   }
   
@@ -426,6 +425,50 @@ select {
       gap: 1rem;
     }
   }
+
+
+
+  /**************************************************/
+  /************** DETAILS PAGE SECTION **************/
+  /**************************************************/
+
+
+//-- CoinDetails() section
+  .container.details__page--container {
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+  }
+
+
+  .buySell--container{
+    width:100%;
+    height:auto;
+    borderRadius: 10;
+    background-color: ${({ theme }) => theme.colors.white};
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    padding:1rem;
+    border-radius: .5rem;
+  }
+
+
+//-- DESKTOP
+  @media (min-width: 900px) {
+    .container.details__page--container {
+      display:flex;
+      flex-direction:row;
+      justify-content:center;
+    }
+
+    .buySell--container{
+      width:30%;
+      height:100%;
+    }
+
+  }
+
+//-- END CoinDetails() section
+
 
 
 

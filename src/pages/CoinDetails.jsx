@@ -8,6 +8,7 @@ import BuySell from '../components/BuySell';
 import CoinInfoTop from '../components/charts/CoinInfoTop';
 import CoinInfoBot from '../components/charts/CoinInfoBot';
 import Navbar from '../components/navbar/Navbar'; 
+import * as Styled from '../styled/components';
 
 //TODO: NOT CONNECTED TO CRYPTO CONTEXT!!
 export default function CoinDetails(){
@@ -69,17 +70,16 @@ export default function CoinDetails(){
   return(
     <>
     <Navbar/>
-    <div style={{display:'flex', gap:10}}>
-      {/* TODO: This whole thing should be a component */}
-      <div style={{maxWidth:'60%', backgroundColor:'#e0e0e0', padding:10, borderRadius:10}}>   
+    <div className='container details__page--container'>
+      <Styled.AssetsContainer className='whiteShadow'>
         <CoinInfoTop coinInfo={coinInfo}></CoinInfoTop>
         {chartData && <LineChart data={formatChartData(chartData)} />}
         <CoinInfoBot coinInfo={coinInfo}></CoinInfoBot> 
-        {/* COIN DESCRIPTION SECTION */}     
-        <div>
+
+        <div style={{paddingTop:'1rem'}}>
           <p>{coinMetaData.data.description}</p>
         </div>
-      </div>
+      </Styled.AssetsContainer>
 
       <BuySell coin={coinInfo}></BuySell>
     </div>

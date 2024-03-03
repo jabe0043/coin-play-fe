@@ -61,14 +61,14 @@ export default function BuySell({ coin }) {
   return (
     <>
       {userDoc && (
-        <div style={{ flexGrow: 1, height: '100%', backgroundColor: '#e0e0e0', padding: 10, borderRadius: 10 }}>
-          <div style={{borderBottom: '1px solid #cccccc'}}>
+        <div className='buySell--container'>
+          <div style={{borderBottom: '1px solid #D3DDE680', marginBottom:'1rem'}}>
             <h1>{`Buy ${coin.name}`}</h1>
-            <p style={{ display: 'flex', justifyContent: 'space-between', }}>
+            <p style={{ display: 'flex', justifyContent: 'space-between', paddingBottom:'.5rem' }}>
               Available Balance:
               <span>{`$${userDoc.portfolio.available.toLocaleString('en-Us')} USD`}</span>
             </p>
-            <p style={{ display: 'flex', justifyContent: 'space-between',  }}>
+            <p style={{ display: 'flex', justifyContent: 'space-between', paddingBottom:'.5rem'  }}>
               Purchaseable Quantity: <span>{`${getTotalPurchaseableQty()} ${coin.symbol}`}</span> </p>
           </div>
 
@@ -79,7 +79,7 @@ export default function BuySell({ coin }) {
                 id="qty"
                 type="number"
                 placeholder={placeholder}
-                style={{ textAlign: 'center',height: '2.5rem',borderRadius: 5,marginBottom: 0,backgroundColor: '#fff',border: 'none',boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',}}
+                style={{ textAlign: 'center', height: '2.5rem', borderRadius: 5, marginBottom: 0, backgroundColor: '#fff', border: '1px solid #9BA4B450', marginTop:'.5rem' }}
                 value={qtyInput !== null ? qtyInput.toString() : ''}
                 onChange={(e) => setQtyInput(e.target.value)}
                 onFocus={() => setPlaceholder('')}
@@ -88,11 +88,13 @@ export default function BuySell({ coin }) {
 
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <p>Total (USD)</p>
-              <p style={{textAlign:'center'}}>$ {total !== null ? total.toFixed(2).toLocaleString('en-Us').toString() : ''}</p>
+              <p style={{textAlign:'center',height: '2.5rem', marginTop:'.5rem', borderRadius: 5, boxShadow: 'rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset', display:'flex', flexDirection:'column', justifyContent:'center'}}>
+                $ {total !== null ? total.toLocaleString('en-Us').toString() : ''}
+              </p>
             </div>
 
             <button 
-              style={{ color: 'white', backgroundColor: '#242424', height: '2.5rem', width: '100%', borderRadius: '5px', border: 0 }}
+              style={{ color: 'white', fontWeight:'bold', backgroundColor: '#18a4e0', height: '2.5rem', width: '100%', borderRadius: '5px', border: 0 }}
               onClick = {() => initiateTransaction('buy')}
             >
               {`Buy ${coin.symbol}`}
