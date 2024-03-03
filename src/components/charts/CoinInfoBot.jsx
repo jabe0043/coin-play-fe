@@ -1,14 +1,19 @@
 import { RxQuestionMarkCircled } from "react-icons/rx";
+import { useMediaQuery } from 'react-responsive';
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 import { useLocation } from 'react-router-dom';
 import { useUser } from '../../context/userContext';
 import coinMetaData from '../../utils/dummyData/coinMetaData.json' //DUMMY DATA; for description, total volume, max supply
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ReactModal from 'react-modal';
+import BuySell from "../BuySell";
 
 //TODO: COIN METADATA IS DUMMY DATA
 export default function CoinInfoBot({coinInfo}){
   const userDoc = useUser();
   const location = useLocation();
+  const [isBuySellModalOpen, setIsBuyModalOpen] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 768 }); // Adjust the breakpoint accordingly
 
   console.log('coin info bot component', coinInfo)
   // console.log('Current Location', location)
@@ -71,17 +76,56 @@ export default function CoinInfoBot({coinInfo}){
   }
 
 
+  const handleModal = () =>{
+    setIsBuyModalOpen(!isBuySellModalOpen);
+  }
+
   return(
     <>
       <div className='coinInfo__cards--container' style={{paddingBottom:'1.5rem', }}>
         {buildCoinInfoCards()}
       </div>
       
-      {/**TODO: FOR OWNED COINS (on home page)ADD HOLDING, PERCENTAGE gain based on initial investment amount. etc next to btn  */}
-      <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', borderTop: '1px solid #D3DDE680', paddingTop:'.5rem'}}>
-        {buildStatsCards()}
-        {location.pathname === '/home' ? <button className="buySell--btn" style={{minHeight:'100%', padding:'.5rem', display:'flex', }}>{`Trade ${coinInfo.symbol}`}</button> : null}
-      </div>
+      {/* Extra styling for home page version */}
+      { location.pathname === '/home' && 
+        <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', borderTop: '1px solid #D3DDE680', paddingTop:'.5rem'}}>
+          {buildStatsCards()}
+          <button className="buySell--btn" style={{minHeight:'100%', padding:'.5rem', display:'flex', }}
+            onClick={()=> handleModal()}
+          >
+            {`Trade ${coinInfo.symbol}`}
+          </button>
+        </div>
+      }   
+
+      <ReactModal
+        isOpen={isBuySellModalOpen}
+        onRequestClose={handleModal}
+        style={{
+          content: {
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            padding: 0,
+            position: isMobile ? 'absolute' : 'relative',
+            bottom: isMobile ? 0 : 'auto',
+            right: isMobile ? 0 : 'auto', // Set right to 0 for mobile, 'auto' for desktop
+            left: isMobile ? 0 : '65vw',
+            top: isMobile ? 'auto' : 0,
+            maxHeight: 'auto',
+            width: isMobile ? 'auto' : '100%',
+            borderRadius: '10px',
+            border: 'none',
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '2rem',
+          },
+        }}
+      >
+        <BuySell coin={coinInfo}></BuySell>
+      </ReactModal>
     </>
+    
   )
 }

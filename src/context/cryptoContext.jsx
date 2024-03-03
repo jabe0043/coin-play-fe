@@ -40,13 +40,13 @@ function CryptoProvider(props) {
     const url = `${baseUrl}${queryType}?${coinSymbols}`
     //TODO: COMMENTED OUT TO PREVENT EXCESSIVE API CALLS
     console.log('updated crypto data url (NOT FETCHING)',url);
-    // try{
-    //   let updatedData = await fetchMobulaCryptoAPI(url);
-    //   const updatedDataArr = Object.values(updatedData); //convert trending coins from { {}, {} } to [ {}, {} ];
-    //   setCryptoData(updatedDataArr);
-    // } catch (e){
-    //   console.log(e)
-    // }
+    try{
+      let updatedData = await fetchMobulaCryptoAPI(url);
+      const updatedDataArr = Object.values(updatedData); //convert trending coins from { {}, {} } to [ {}, {} ];
+      setCryptoData(updatedDataArr);
+    } catch (e){
+      console.log(e)
+    }
   }
 
 

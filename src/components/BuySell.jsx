@@ -1,6 +1,7 @@
 import { useUser } from '../context/userContext';
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 
 export default function BuySell({ coin }) {
@@ -9,9 +10,10 @@ export default function BuySell({ coin }) {
   const [placeholder, setPlaceholder] = useState('');
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // console.log('USER DOC: ', userDoc);
-  // console.log('coin: ', coin);
+  console.log('coin: ', coin);
 
   // Set the input placeholder text based on qtyInput
   useEffect(() => {
@@ -61,7 +63,7 @@ export default function BuySell({ coin }) {
   return (
     <>
       {userDoc && (
-        <div className='buySell--container'>
+        <div className='buySell--container' style={{boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px'}}>
           <div style={{borderBottom: '1px solid #D3DDE680', marginBottom:'1rem'}}>
             <h1>{`Buy ${coin.name}`}</h1>
             <p style={{ display: 'flex', justifyContent: 'space-between', paddingBottom:'.5rem' }}>
@@ -93,13 +95,17 @@ export default function BuySell({ coin }) {
               </p>
             </div>
 
-            <button 
-              // style={{ color: 'white', fontWeight:'bold', backgroundColor: '#18a4e0', height: '2.5rem', width: '100%', borderRadius: '5px', border: 0 }}
-              className='buySell--btn'
-              onClick = {() => initiateTransaction('buy')}
-            >
+          <div style={{display:'flex', justifyContent:'space-between', gap:'1rem'}}>
+            { location.pathname === '/home' &&
+            <button className='buySell--btn' style={{ flexGrow: 0.5, backgroundColor: 'white', color: '#18a4e0', border: '0.15rem solid ' }} onClick={() => initiateTransaction('sell')}>
+              {`Sell ${coin.symbol}`}
+            </button>
+            }
+            <button className='buySell--btn' style={{flexGrow: location.pathname==='/home' ? .5 : 1}}onClick = {() => initiateTransaction('buy')} >
               {`Buy ${coin.symbol}`}
             </button>
+          </div>
+
           </div>
         </div>
       )}
