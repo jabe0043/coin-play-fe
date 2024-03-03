@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 import { BiDollar } from "react-icons/bi";
+import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 
 
 //-- This section displays information above the line chart. 
 export default function CoinInfoTop({coinInfo}){
   const [selectedTimeRangeBtn, setSelectedTimeRangeBtn] = useState('24H'); //TODO: IMPLEMENT to fetch updated time range market data in useEffect
   const timeRanges = ['1H', '24H', '7D', '3M', '6M', '1Y', 'ALL'];
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   //TODO:
   useEffect(()=>{
@@ -42,10 +44,9 @@ export default function CoinInfoTop({coinInfo}){
         <h2 style={{ margin: 0, lineHeight: 1 }}>{coinInfo.name}</h2>
         <small style={{ margin: 0 }}> {coinInfo.symbol}</small>
       </div>
-      <div style={{display: 'flex', gap:2, flexDirection:'column', marginLeft: 'auto', color:'gray' }}>
-        <small style={{ margin: 0 }}> {`ATH: $${coinInfo.ath.toFixed(2).toLocaleString('en-Us')}`}</small>
-        <small style={{ margin: 0 }}> {`ATL: $${coinInfo.atl.toFixed(2).toLocaleString('en-Us')}`}</small>
-      </div>
+      <button className="bookmark__btn" onClick={()=> setIsBookmarked(!isBookmarked)}> 
+        {isBookmarked ? <IoBookmark/> : <IoBookmarkOutline />}
+      </button>
     </div>
     
     {/* PRICE info and time range btns  */}

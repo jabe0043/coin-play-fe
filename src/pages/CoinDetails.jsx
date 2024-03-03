@@ -76,7 +76,9 @@ export default function CoinDetails(){
         {chartData && <LineChart data={formatChartData(chartData)} />}
         <CoinInfoBot coinInfo={coinInfo}></CoinInfoBot> 
 
-        <div style={{paddingTop:'1rem'}}>
+        {/*Coin description */}
+        <div style={{paddingTop:'1rem', borderTop: '1px solid #D3DDE680'}}>
+          <h3 style={{marginBottom:'.25rem',}}>{`What is ${coinInfo.name}?`}</h3>
           <p>{coinMetaData.data.description}</p>
         </div>
       </Styled.AssetsContainer>

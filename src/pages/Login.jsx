@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import loginImage from '../assets/loginImage.png';
 
 export default function Login() {
   //////////////////URL/////////////////////
@@ -36,10 +37,16 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <p>Welcome to Coin Play</p>
-      <button onClick={initiateLogin}> login </button>
+    // <div>
+    //   <p>Welcome to Coin Play</p>
+    //   <button onClick={initiateLogin}> login </button>
 
+    // </div>
+
+    <div className="login--container">
+      <h1>Welcome to Coin Play</h1>
+      <img className="login--image" src={loginImage} alt="Coin Play logo"/>
+      <button className= "login--btn" onClick={initiateLogin}>Sign In</button>
     </div>
   );
 }

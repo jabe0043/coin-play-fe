@@ -94,7 +94,8 @@ export default function BuySell({ coin }) {
             </div>
 
             <button 
-              style={{ color: 'white', fontWeight:'bold', backgroundColor: '#18a4e0', height: '2.5rem', width: '100%', borderRadius: '5px', border: 0 }}
+              // style={{ color: 'white', fontWeight:'bold', backgroundColor: '#18a4e0', height: '2.5rem', width: '100%', borderRadius: '5px', border: 0 }}
+              className='buySell--btn'
               onClick = {() => initiateTransaction('buy')}
             >
               {`Buy ${coin.symbol}`}

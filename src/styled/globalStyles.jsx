@@ -148,7 +148,33 @@ select {
   padding:1.5rem;
 }
 
+/************** LOGIN SECTION **************/
+.login--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; 
+}
 
+.login--image {
+  padding: 1.5em;
+  width: 25rem;
+}
+
+.login--btn{
+  padding: 1rem;
+  background-color: ${({ theme }) => theme.colors.midnightBlue};
+  color:${({ theme }) => theme.colors.white};
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 300px;
+  box-sizing: border-box; 
+  font-size: ${({ theme }) => theme.fontSizes.s};
+  font-weight: bold;
+}
 
 
 /************** NAVBAR SECTION **************/
@@ -317,27 +343,51 @@ select {
   margin-top: 1px;
 }
 
-
+.bookmark__btn{
+  background-color: ${({ theme }) => theme.colors.white};
+  border: none;
+  font-size:1.75rem;
+  color: ${({ theme }) => theme.colors.slateBlueDark};
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  margin-left:auto;
+}
 
 //--> CoinInfoBot() Component 
 
 .coinInfo__cards--container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap:.5rem;
-  padding-top:1rem;
+  gap: 0.5rem;
+  padding-top: 1rem;
 }
 
-.coinInfo__card{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:flex-start;
-  background-color:${({ theme }) => theme.colors.white};
+.coinInfo__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: ${({ theme }) => theme.colors.white};
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   font-size: ${({ theme }) => theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.charcoal};
 }
+
+
+.buySell--btn {
+  color: white;
+  font-weight: bold;
+  background-color: #18a4e0;
+  height: 2.5rem;
+  width: auto;
+  border-radius: 5px;
+  border: 0;
+  text-align:center;
+}
+
+
+
 
 .coinInfo__card--title {
   color: #9BA4B4;
