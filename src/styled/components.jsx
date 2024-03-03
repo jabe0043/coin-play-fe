@@ -38,8 +38,7 @@ const HomePageContainer = styled.div`
   @media screen and (min-width: 950px) {
     display: flex; 
     flex-direction: row;
-    justify-content:space-between;
-    // align-items:center;
+    justify-content:center;
   }
 `
 
