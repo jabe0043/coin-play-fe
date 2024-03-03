@@ -23,7 +23,7 @@ export default function Portfolio({userDoc}){
       {userDoc &&
         <div style={{display:'flex', flexDirection:'column', gap:'1rem'}}>
           <div className="whiteShadow">
-            <h2>Here's a breakdown of your portfolio</h2>
+            <h2 style={{borderBottom: '1px solid #D3DDE680', paddingBottom:'0.5rem'}}>Here's a breakdown of your portfolio</h2>
             <Styled.PortfolioContainer>
               <PortfolioOverviewChart userDoc={userDoc}/>
               <div style={{ width: '100%', gap:10, flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
