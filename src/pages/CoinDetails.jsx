@@ -5,8 +5,8 @@ import LineChart from '../components/charts/LineCharts';
 import marketData from '../utils/dummyData/marketData.json'; //DUMMY DATA;
 import coinMetaData from '../utils/dummyData/coinMetaData.json' //DUMMY DATA; for description, total volume, max supply
 import BuySell from '../components/BuySell';
-import CoinInfoTop from '../components/CoinInfoTop';
-import CoinInfoBot from '../components/CoinInfoBot';
+import CoinInfoTop from '../components/charts/CoinInfoTop';
+import CoinInfoBot from '../components/charts/CoinInfoBot';
 import Navbar from '../components/navbar/Navbar'; 
 
 //TODO: NOT CONNECTED TO CRYPTO CONTEXT!!

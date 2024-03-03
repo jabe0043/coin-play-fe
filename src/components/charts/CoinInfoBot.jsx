@@ -1,6 +1,6 @@
 import { RxQuestionMarkCircled } from "react-icons/rx";
 
-import coinMetaData from '../utils/dummyData/coinMetaData.json' //DUMMY DATA; for description, total volume, max supply
+import coinMetaData from '../../utils/dummyData/coinMetaData.json' //DUMMY DATA; for description, total volume, max supply
 
 //TODO: COIN METADATA IS DUMMY DATA
 export default function CoinInfoBot({coinInfo}){

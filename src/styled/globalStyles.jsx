@@ -275,6 +275,7 @@ select {
 
 
 
+
 /**************************************************/
 /************** HOME SECTION **************/
 /**************************************************/
@@ -373,6 +374,59 @@ select {
   .coinInfo__card{
     font-size: ${({ theme }) => theme.fontSizes.s};
   }
+
+}
+
+/************** END HOME SECTION **************/
+
+
+
+  /**************************************************/
+  /************** EXPLORE SECTION **************/
+  /**************************************************/
+
+//-- INFINITE CAROUSEL slider section (MostTrader())
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .carousel-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    overflow: hidden;
+  }
+  
+  .carousel-card {
+    background-color: ${({ theme }) => theme.colors.white};
+    min-width: 10rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+  
+  .carousel-track {
+    display: flex;
+    left: 0;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+    width: 100%; 
+    height: 100%;
+    animation: slide 40s linear infinite;
+  }
+  
+  //--DESKTOP CAROUSEL SECTION ( MEDIA QUERY )
+  @media (min-width: 767px) {
+    .carousel-track {
+      gap: 1rem;
+    }
+  }
+
 
 
 

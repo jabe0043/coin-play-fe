@@ -51,10 +51,10 @@ export default function CoinInfoTop({coinInfo}){
     {/* PRICE info and time range btns  */}
     <div style={{display:'flex', justifyContent:'space-between', gap:50, paddingBottom:'1rem'}}>
       <div style={{ display: 'flex', flexDirection:'column', justifyContent: 'flex-start' }}>
-        <p style={{margin:0, display:'flex', alignItems:'center'}}>
+        <p style={{margin:0, display:'flex', alignItems:'center',}}>
           <BiDollar size={16}/>
-          <strong>{`${coinInfo.price.toFixed(2).toLocaleString('en-US')}`}</strong>
-          <span style={{color:'gray', paddingLeft:5}}><small>{`USD`}</small></span>
+          <strong style={{fontSize:'large'}}>{`${coinInfo.price.toFixed(2).toLocaleString('en-US')}`}</strong>
+          <span style={{color:'gray', paddingLeft:5, marginTop:2}}><small>{`USD`}</small></span>
         </p>
         <p style={{marginTop:-5, color:coinInfo.price_change_24h > 0 ? 'green':'red', display:'flex', alignItems:'center'}}>
           {

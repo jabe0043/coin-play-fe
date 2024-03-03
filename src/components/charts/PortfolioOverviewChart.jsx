@@ -13,7 +13,7 @@ export default function PortfolioOverviewChart({userDoc}){
     labels: ['Available Funds', 'Invested Funds'],
     datasets: [{
       data: [available, invested],
-      backgroundColor: ['#8ADFB5', '#FFB6B6'],
+      backgroundColor: ['#8ADFB5', '#18a4e0fe'],
       borderWidth: false
     }]
   }
