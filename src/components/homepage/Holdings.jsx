@@ -41,7 +41,7 @@ export default function Holdings(){
 
   return (
     <div className='whiteShadow'>
-      <h2>Your Holdings</h2>
+      <h2 style={{borderBottom: '1px solid #D3DDE680', paddingBottom:'0.5rem'}}>Your Holdings</h2>
       <Styled.PortfolioContainer>
         <InvestmentsBreakdownChart userDoc={userDoc}/>
         <div style={{ width: '100%', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>

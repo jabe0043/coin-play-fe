@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useUser } from '../../context/userContext';
 import { useCrypto } from '../../context/cryptoContext';
 import LineChart from '../charts/LineCharts';
-import CoinInfoTop from '../CoinInfoTop';
-import CoinInfoBot from '../CoinInfoBot';
+import CoinInfoTop from '../charts/CoinInfoTop';
+import CoinInfoBot from '../charts/CoinInfoBot';
 import * as Styled from '../../styled/components';
 
 /*

@@ -26,20 +26,19 @@ const SearchBar = styled.div`
   justify-content: flex-start;
 `
 /***********************************************
--- HomePage Component
+-- HomePage
 ***********************************************/
 const HomePageContainer = styled.div`
   height: auto;
   display: flex; 
-  flex-direction: column; 
-  gap: 1rem;
+  flex-direction: column;
+  gap:1rem;
 
   //--Desktop
   @media screen and (min-width: 950px) {
     display: flex; 
     flex-direction: row;
-    justify-content:space-between;
-    // align-items:center;
+    justify-content:center;
   }
 `
 
@@ -81,6 +80,15 @@ const AssetsContainer = styled.div`
 `
 
 //-- End Assets section
+
+
+
+
+/***********************************************
+-- Explore Page
+***********************************************/
+
+
 
 
 

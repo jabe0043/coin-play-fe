@@ -148,7 +148,33 @@ select {
   padding:1.5rem;
 }
 
+/************** LOGIN SECTION **************/
+.login--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; 
+}
 
+.login--image {
+  padding: 1.5em;
+  width: 25rem;
+}
+
+.login--btn{
+  padding: 1rem;
+  background-color: ${({ theme }) => theme.colors.midnightBlue};
+  color:${({ theme }) => theme.colors.white};
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 300px;
+  box-sizing: border-box; 
+  font-size: ${({ theme }) => theme.fontSizes.s};
+  font-weight: bold;
+}
 
 
 /************** NAVBAR SECTION **************/
@@ -275,6 +301,7 @@ select {
 
 
 
+
 /**************************************************/
 /************** HOME SECTION **************/
 /**************************************************/
@@ -283,7 +310,7 @@ select {
   background-color: ${({ theme }) => theme.colors.white};
   padding:1rem;
   border-radius: .5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
 }
 
 .whiteShadow h2{
@@ -316,27 +343,51 @@ select {
   margin-top: 1px;
 }
 
-
+.bookmark__btn{
+  background-color: ${({ theme }) => theme.colors.white};
+  border: none;
+  font-size:1.75rem;
+  color: ${({ theme }) => theme.colors.slateBlueDark};
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  margin-left:auto;
+}
 
 //--> CoinInfoBot() Component 
 
 .coinInfo__cards--container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap:.5rem;
-  padding-top:1rem;
+  gap: 0.5rem;
+  padding-top: 1rem;
 }
 
-.coinInfo__card{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:flex-start;
-  background-color:${({ theme }) => theme.colors.white};
+.coinInfo__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: ${({ theme }) => theme.colors.white};
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   font-size: ${({ theme }) => theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.charcoal};
 }
+
+
+.buySell--btn {
+  color: white;
+  font-weight: bold;
+  background-color: #18a4e0;
+  height: 2.5rem;
+  width: auto;
+  border-radius: 5px;
+  border: 0;
+  text-align:center;
+}
+
+
+
 
 .coinInfo__card--title {
   color: #9BA4B4;
@@ -373,6 +424,101 @@ select {
   .coinInfo__card{
     font-size: ${({ theme }) => theme.fontSizes.s};
   }
+
+}
+
+/************** END HOME SECTION **************/
+
+
+
+  /**************************************************/
+  /************** EXPLORE PAGE SECTION **************/
+  /**************************************************/
+
+//-- INFINITE CAROUSEL slider section (MostTrader())
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .carousel-container {
+    padding-bottom: .5rem;
+    overflow: hidden;
+  }
+  
+  .carousel-card {
+    background-color: ${({ theme }) => theme.colors.white};
+    min-width: 10rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+  
+  .carousel-track {
+    display: flex;
+    left: 0;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+    width: 100%; 
+    height: 100%;
+    animation: slide 40s linear infinite;
+  }
+  
+  //--DESKTOP CAROUSEL SECTION ( MEDIA QUERY )
+  @media (min-width: 767px) {
+    .carousel-track {
+      gap: 1rem;
+    }
+  }
+
+
+
+  /**************************************************/
+  /************** DETAILS PAGE SECTION **************/
+  /**************************************************/
+
+
+//-- CoinDetails() section
+  .container.details__page--container {
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+  }
+
+
+  .buySell--container{
+    width:100%;
+    height:auto;
+    borderRadius: 10;
+    background-color: ${({ theme }) => theme.colors.white};
+    padding:1rem;
+    border-radius: .5rem;
+  }
+
+
+//-- DESKTOP
+  @media (min-width: 900px) {
+    .container.details__page--container {
+      display:flex;
+      flex-direction:row;
+      justify-content:center;
+    }
+
+    .buySell--container{
+      width:30%;
+      height:100%;
+    }
+
+  }
+
+//-- END CoinDetails() section
+
+
 
 
 
